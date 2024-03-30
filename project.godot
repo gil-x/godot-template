@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 Debug="*res://src/global/debug.gd"
 Vars="*res://src/global/vars.gd"
 
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={

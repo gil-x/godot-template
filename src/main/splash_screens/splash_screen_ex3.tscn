@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk2vwl6hmxq57"]
+
+[ext_resource type="PackedScene" uid="uid://buwcqfbyjdeyt" path="res://src/main/splash_screens/splash_screen.tscn" id="1_4xvor"]
+[ext_resource type="Texture2D" uid="uid://b38t32iu216r8" path="res://assets/samples/logo_sample2.png" id="2_1ink4"]
+
+[node name="SplashScreen" instance=ExtResource("1_4xvor")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Container" index="0"]
+texture = ExtResource("2_1ink4")

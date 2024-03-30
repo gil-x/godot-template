@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://donp73yd1do2c"]
+
+[ext_resource type="Script" path="res://src/main/splash_screens/splash_screens.gd" id="1_fs1jf"]
+[ext_resource type="PackedScene" uid="uid://cvst7bdprpch4" path="res://src/main/splash_screens/splash_screen_ex1.tscn" id="2_rjbrs"]
+[ext_resource type="PackedScene" uid="uid://vd2pv5hqfe8b" path="res://src/main/splash_screens/splash_screen_ex2.tscn" id="3_u525l"]
+[ext_resource type="PackedScene" uid="uid://dk2vwl6hmxq57" path="res://src/main/splash_screens/splash_screen_ex3.tscn" id="4_1br0k"]
+
+[sub_resource type="Animation" id="Animation_foy48"]
+resource_name = "titles"
+length = 7.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n3743"]
+_data = {
+"titles": SubResource("Animation_foy48")
+}
+
+[node name="SplashScreens" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fs1jf")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n3743")
+}
+
+[node name="Screens" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="SplashScreen1" parent="Screens" instance=ExtResource("2_rjbrs")]
+
+[node name="SplashScreen2" parent="Screens" instance=ExtResource("3_u525l")]
+
+[node name="SplashScreen" parent="Screens" instance=ExtResource("4_1br0k")]
+
+[connection signal="splash_screen_ended" from="Screens/SplashScreen1" to="Screens/SplashScreen1" method="_on_splash_screen_ended"]
+[connection signal="splash_screen_ended" from="Screens/SplashScreen2" to="Screens/SplashScreen2" method="_on_splash_screen_ended"]
+[connection signal="splash_screen_ended" from="Screens/SplashScreen" to="Screens/SplashScreen" method="_on_splash_screen_ended"]
