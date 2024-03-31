@@ -1,0 +1,157 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsl2ad1604bt2"]
+
+[ext_resource type="FontFile" uid="uid://dsr5jqjqumpmo" path="res://assets/assets/fonts/Anton-Regular.ttf" id="1_2jhtd"]
+[ext_resource type="Script" path="res://src/tests/test_controls.gd" id="1_eevxb"]
+
+[node name="TestControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eevxb")
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -122.5
+offset_right = 130.0
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Up" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_right = 31.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_2jhtd")
+theme_override_font_sizes/font_size = 40
+text = "↑"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Down" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -62.0
+offset_right = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_2jhtd")
+theme_override_font_sizes/font_size = 40
+text = "↓"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -31.0
+offset_right = 62.0
+offset_bottom = 31.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_2jhtd")
+theme_override_font_sizes/font_size = 40
+text = "←"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -31.0
+offset_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_2jhtd")
+theme_override_font_sizes/font_size = 40
+text = "→"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpLeft" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 62.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("1_2jhtd")
+theme_override_font_sizes/font_size = 40
+text = "↖"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpRight" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -62.0
+offset_bottom = 62.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_2jhtd")
+theme_override_font_sizes/font_size = 40
+text = "↗"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DownRight" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -62.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_2jhtd")
+theme_override_font_sizes/font_size = 40
+text = "↘"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DownLeft" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -62.0
+offset_right = 62.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_2jhtd")
+theme_override_font_sizes/font_size = 40
+text = "↙"
+horizontal_alignment = 1
+vertical_alignment = 1
