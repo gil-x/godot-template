@@ -1,11 +1,18 @@
 extends Node
 
 @export var splash_screens : PackedScene
+@export var main_menu : PackedScene
+
 
 func load_splash_screens():
 	var splash_screens_scene = splash_screens.instantiate()
 	splash_screens_scene.all_splash_screens_ended.connect(self._on_all_splash_screens_ended)
 	call_deferred("add_child", splash_screens_scene)
+
+
+func load_main_menu():
+	var main_menu_scene = main_menu.instantiate()
+	call_deferred("add_child", main_menu_scene)
 
 
 func debug_test():
@@ -22,3 +29,4 @@ func _ready():
 
 func _on_all_splash_screens_ended():
 	Debug.print("All splash screens ended.")
+	load_main_menu()

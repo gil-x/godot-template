@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://cll2hfk84iy4v"]
+
+[ext_resource type="Script" path="res://src/menu/main_menu.gd" id="1_yct8u"]
+[ext_resource type="Texture2D" uid="uid://7h6mlxto0uys" path="res://assets/samples/sample.webp" id="2_4t21t"]
+[ext_resource type="PackedScene" uid="uid://s8w0gswkk5lk" path="res://src/levels/level_0/level_0.tscn" id="2_wykww"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yct8u")
+level0 = ExtResource("2_wykww")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+texture = ExtResource("2_4t21t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -196.0
+offset_right = 218.0
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../QuitButton")
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "START"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_bottom = NodePath("../StartButton")
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "QUIT
+"
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
