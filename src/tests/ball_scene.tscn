@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://855h75b2pm1s"]
+
+[ext_resource type="Script" path="res://src/tests/Ball.gd" id="1_hx4on"]
+[ext_resource type="Texture2D" uid="uid://cvl8r5w14qnio" path="res://assets/samples/disc.svg" id="1_jnqib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj0ob"]
+size = Vector2(800, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swt5a"]
+size = Vector2(24, 552)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iafwb"]
+size = Vector2(24, 552)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3r6q0"]
+radius = 32.0
+
+[node name="BallScene" type="Node"]
+
+[node name="Wall1" type="StaticBody2D" parent="."]
+position = Vector2(400, 16)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Wall1"]
+offset_left = -400.0
+offset_top = -16.0
+offset_right = 400.0
+offset_bottom = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_nj0ob")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(400, 592)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Wall2"]
+offset_left = -400.0
+offset_top = -16.0
+offset_right = 400.0
+offset_bottom = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_nj0ob")
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(8, 296)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Wall3"]
+offset_left = -8.0
+offset_top = -272.0
+offset_right = 16.0
+offset_bottom = 280.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_swt5a")
+
+[node name="Wall4" type="StaticBody2D" parent="."]
+position = Vector2(792, 304)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Wall4"]
+offset_left = -16.0
+offset_top = -280.0
+offset_right = 8.0
+offset_bottom = 272.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
+position = Vector2(-4, -4)
+shape = SubResource("RectangleShape2D_iafwb")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(400, 312)
+mass = 0.1
+gravity_scale = 0.0
+contact_monitor = true
+script = ExtResource("1_hx4on")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture = ExtResource("1_jnqib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_3r6q0")
+
+[node name="VelocityDisplay" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 40.0
+offset_top = 64.0
+offset_right = 760.0
+offset_bottom = 96.0
+horizontal_alignment = 1

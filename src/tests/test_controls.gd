@@ -1,22 +1,24 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
 
 func disable_arrow(arrow: Label) -> void:
 	arrow.modulate = Color.WHITE
 
+
 func disable_arrows() -> void:
 	for arrow in %Panel.get_children():
 		arrow.modulate = Color.WHITE
-		
+
+
 func highlight_arrow(arrow: Label) -> void:
 	#Debug.print(arrow.theme_override_colors.font_color)
 	arrow.modulate = Color.YELLOW_GREEN
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
 func _process(delta):
 	# Detect key press
 	if Input.is_action_pressed("ui_up"):
@@ -46,14 +48,9 @@ func _process(delta):
 	# Detect release
 	if Input.is_action_just_released("ui_up"):
 		disable_arrows()
-		#disable_arrow(%Up)
 	if Input.is_action_just_released("ui_down"):
 		disable_arrows()
-		#disable_arrow(%Down)
 	if Input.is_action_just_released("ui_left"):
 		disable_arrows()
-		#disable_arrow(%Left)
 	if Input.is_action_just_released("ui_right"):
 		disable_arrows()
-		#disable_arrow(%Right)
-	
