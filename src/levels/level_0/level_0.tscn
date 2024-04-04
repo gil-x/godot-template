@@ -1,14 +1,7 @@
-[gd_scene format=3 uid="uid://s8w0gswkk5lk"]
+[gd_scene load_steps=2 format=3 uid="uid://s8w0gswkk5lk"]
+
+[ext_resource type="PackedScene" uid="uid://855h75b2pm1s" path="res://src/tests/ball_scene.tscn" id="1_0etm4"]
 
 [node name="Level0" type="Node"]
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 100
-text = "LEVEL 0"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="BallScene" parent="." instance=ExtResource("1_0etm4")]

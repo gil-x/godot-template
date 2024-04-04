@@ -26,7 +26,26 @@ func debug_test():
 func _ready():
 	debug_test()
 	load_splash_screens()
+	Game.change_state(Game.State.SPLASH_SCREENS)
+
 
 func _on_all_splash_screens_ended():
 	Debug.print("All splash screens ended.")
 	load_main_menu()
+	Game.change_state(Game.State.TITLE_SCREEN)
+
+
+func pause_game():
+	if Game.current_state == Game.State.IN_GAME:
+		Game.change_state(Game.State.PAUSED)
+		%PauseCanvas.show()
+	elif Game.current_state == Game.State.PAUSED:
+		Game.change_state(Game.State.IN_GAME)
+		%PauseCanvas.hide()
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		pause_game()
+
+

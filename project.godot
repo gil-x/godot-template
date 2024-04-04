@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Debug="*res://src/global/debug.gd"
 Vars="*res://src/global/vars.gd"
+Game="*res://src/global/game.gd"
 
 [display]
 
