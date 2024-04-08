@@ -38,9 +38,14 @@ Uses Engine.time_scale, sets/unsets a very small value.
 
 ## Before use
 
+0. rewrite this README file
 1. remove debug_test function from main.gd
 2. remove global test var from vars.gd
 3. remove assets/samples
 4. modify splashcreens scenes or make news
 5. modify title screen
 6. modify main menu
+
+## Samples credits
+
+- Music _'Which Brand Of Mustard Shall I Buy'_ from [congusbongus](https://opengameart.org/users/congusbongus).
