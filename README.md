@@ -48,4 +48,6 @@ Uses Engine.time_scale, sets/unsets a very small value.
 
 ## Samples credits
 
-- Music _'Which Brand Of Mustard Shall I Buy'_ from [congusbongus](https://opengameart.org/users/congusbongus).
+- Music _'Which Brand Of Mustard Shall I Buy'_ by [congusbongus](https://opengameart.org/users/congusbongus)
+- Music _'techno-geek'_ by [mrpoly](https://opengameart.org/content/techno-geek)
+- SFX from Kenney

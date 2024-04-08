@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cll2hfk84iy4v"]
 
-[ext_resource type="Script" path="res://src/menu/main_menu.gd" id="1_yct8u"]
+[ext_resource type="Script" path="res://src/main/menu/main_menu.gd" id="1_yct8u"]
 [ext_resource type="Texture2D" uid="uid://7h6mlxto0uys" path="res://assets/samples/sample.webp" id="2_4t21t"]
 [ext_resource type="PackedScene" uid="uid://s8w0gswkk5lk" path="res://src/levels/level_0/level_0.tscn" id="2_wykww"]
 [ext_resource type="AudioStream" uid="uid://c4irg7c8h2h8q" path="res://assets/samples/Which_brand_of_mustard_shall_i_buy.ogg" id="4_1grlq"]
@@ -58,6 +58,7 @@ alignment = 0
 [node name="Music" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_1grlq")
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

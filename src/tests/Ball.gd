@@ -10,4 +10,9 @@ func _physics_process(delta):
 		velocity = velocity.bounce(collision.get_normal())
 		velocity.x = clamp(velocity.x * 1.1, -5000, 5000)
 		velocity.y = clamp(velocity.y * 1.1, -5000, 5000)
+		%ImpactSFX.play()
 
+
+func _ready():
+	Debug.print("Ball scene started")
+	%Music.play()

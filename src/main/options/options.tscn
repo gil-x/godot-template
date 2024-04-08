@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://8i07re8ejv3a"]
+
+[ext_resource type="Script" path="res://src/main/options/options.gd" id="1_b3jn7"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b3jn7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Sound Effects Volume"
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

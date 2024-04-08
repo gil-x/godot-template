@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://5jrd8jhjw5l"]
+[gd_scene load_steps=5 format=3 uid="uid://5jrd8jhjw5l"]
 
 [ext_resource type="Script" path="res://src/main/main.gd" id="1_gm38a"]
 [ext_resource type="PackedScene" uid="uid://donp73yd1do2c" path="res://src/main/splash_screens/splash_screens.tscn" id="2_g7xnu"]
-[ext_resource type="PackedScene" uid="uid://cll2hfk84iy4v" path="res://src/menu/main_menu.tscn" id="3_pjff6"]
+[ext_resource type="PackedScene" uid="uid://cll2hfk84iy4v" path="res://src/main/menu/main_menu.tscn" id="3_pjff6"]
+[ext_resource type="PackedScene" uid="uid://8i07re8ejv3a" path="res://src/main/options/options.tscn" id="4_pvodr"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_gm38a")
@@ -11,12 +12,12 @@ main_menu = ExtResource("3_pjff6")
 
 [node name="PauseCanvas" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="PauseMessage" type="Label" parent="PauseCanvas"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -299.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
@@ -24,3 +25,5 @@ text = "Game Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="Options" parent="PauseCanvas" instance=ExtResource("4_pvodr")]
