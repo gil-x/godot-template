@@ -8,6 +8,9 @@
 - title screen with main menu
 - global game state machine
 - pause on 'ui_cancel' press
+- options menu
+- change global music & SFX volume
+- key binding recipe
 
 ## Conception details
 
@@ -32,9 +35,18 @@ Use the dedicated function and values to switch to another state:
 Game.change_state(Game.State.IN_GAME)
 ```
 
+### Key binding
+
+Names displayed with _as_text()_ are good only with real qwerty keyboard because this function refers to physical key positions.
+
 ### Pause
 
 Uses Engine.time_scale, sets/unsets a very small value.
+
+### Sound Volume
+
+- there is 2 audio busses: Music & SFX
+- you have to assign each AudioStreamPlayer to one of this busses
 
 ## Before use
 
@@ -45,6 +57,7 @@ Uses Engine.time_scale, sets/unsets a very small value.
 4. modify splashcreens scenes or make news
 5. modify title screen
 6. modify main menu
+7. remove or rewrite properly _key_binding_ and _test_controls_ scenes
 
 ## Samples credits
 

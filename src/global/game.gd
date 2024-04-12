@@ -18,6 +18,6 @@ func change_state(state : int):
 			Engine.time_scale = 1
 		State.PAUSED:
 			current_state = State.PAUSED
-			Engine.time_scale = 0.05
+			Engine.time_scale = 0.01
 		State.GAME_OVER:
 			current_state = State.GAME_OVER

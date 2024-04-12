@@ -1,10 +1,6 @@
 extends Control
 
 
-func _ready():
-	pass # Replace with function body.
-
-
 func disable_arrow(arrow: Label) -> void:
 	arrow.modulate = Color.WHITE
 
@@ -15,7 +11,6 @@ func disable_arrows() -> void:
 
 
 func highlight_arrow(arrow: Label) -> void:
-	#Debug.print(arrow.theme_override_colors.font_color)
 	arrow.modulate = Color.YELLOW_GREEN
 
 
@@ -47,10 +42,14 @@ func _process(delta):
 		disable_arrow(%Right)
 	# Detect release
 	if Input.is_action_just_released("ui_up"):
+		Debug.print("ui_up released")
 		disable_arrows()
 	if Input.is_action_just_released("ui_down"):
+		Debug.print("ui_down released")
 		disable_arrows()
 	if Input.is_action_just_released("ui_left"):
+		Debug.print("ui_left released")
 		disable_arrows()
 	if Input.is_action_just_released("ui_right"):
+		Debug.print("ui_right released")
 		disable_arrows()
