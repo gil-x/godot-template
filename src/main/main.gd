@@ -29,6 +29,7 @@ func _ready():
 	Game.change_state(Game.State.SPLASH_SCREENS)
 	%PauseCanvas.hide()
 
+
 func _on_all_splash_screens_ended():
 	Debug.print("All splash screens ended.")
 	load_main_menu()

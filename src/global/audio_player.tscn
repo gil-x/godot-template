@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ay4ejkfnu07"]
+
+[ext_resource type="Script" path="res://src/global/audio_player.gd" id="1_ahsmv"]
+
+[node name="AudioPlayer" type="Node"]
+script = ExtResource("1_ahsmv")

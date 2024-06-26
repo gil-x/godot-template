@@ -25,3 +25,4 @@ func _on_splash_screen_ended():
 		display_screen()
 	else:
 		emit_signal("all_splash_screens_ended")
+

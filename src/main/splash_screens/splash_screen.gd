@@ -5,6 +5,9 @@ signal splash_screen_ended
 
 func _ready():
 	%Container.position = get_viewport_rect().size/2
+	var a_sound: AudioStreamPlayer = AudioPlayer.play_sound("sfx_cannon")
+	await get_tree().create_timer(1).timeout
+	AudioPlayer.fade_out(a_sound, 5)
 
 
 func end():

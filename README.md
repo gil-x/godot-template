@@ -10,6 +10,7 @@
 - pause on 'ui_cancel' press
 - options menu
 - change global music & SFX volume
+- audio player global scene
 - key binding recipe
 
 ## Conception details
