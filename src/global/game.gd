@@ -7,7 +7,7 @@ enum State {SPLASH_SCREENS, TITLE_SCREEN, IN_GAME, PAUSED, GAME_OVER}
 var current_state : int
 
 
-func change_state(state : int):
+func change_state(state: int):
 	match state:
 		State.SPLASH_SCREENS:
 			current_state = State.SPLASH_SCREENS

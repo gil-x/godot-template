@@ -20,9 +20,8 @@ func _ready():
 
 
 func _on_splash_screen_ended():
-	# Mov to next splah screen
+	# Move to next splash screen
 	if len(splash_screens) > 0:
 		display_screen()
 	else:
 		emit_signal("all_splash_screens_ended")
-

@@ -1,5 +1,6 @@
 extends Node
 
+
 func print(args) -> void:
 	if not OS.is_debug_build():
 		return

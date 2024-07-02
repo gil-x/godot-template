@@ -1,7 +1,8 @@
 extends Control
 
-@export var level0 : PackedScene
-var tween : Tween
+@export var level0: PackedScene
+var tween: Tween
+
 
 func _ready():
 	self.modulate = 0
@@ -18,6 +19,7 @@ func fadeOutMusic(duration: float) -> bool:
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, duration)
 	await get_tree().create_timer(1).timeout
 	return true
+
 
 func _on_start_button_pressed():
 	print("Start called")

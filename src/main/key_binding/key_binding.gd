@@ -1,12 +1,12 @@
 extends Control
 
-var current_button : Button
+var current_button: Button
 
-@onready var left_button : Button = %ButtonUILeft
-@onready var left_label : Label = %LabelLeft
-@onready var right_button : Button = %ButtonUIRight
-@onready var right_label : Label = %LabelRight
-@export var test_controls : PackedScene
+@onready var left_button: Button = %ButtonUILeft
+@onready var left_label: Label = %LabelLeft
+@onready var right_button: Button = %ButtonUIRight
+@onready var right_label: Label = %LabelRight
+@export var test_controls: PackedScene
 
 
 func _ready() -> void:
@@ -37,12 +37,12 @@ func _on_button_pressed(button: Button) -> void:
 		%InfoPanel.show()
 
 
-func assign_key(action : String, key : InputEvent) -> void:
+func assign_key(action: String, key : InputEvent) -> void:
 	InputMap.action_add_event(current_button.get_meta("command"), key)
 
 
 func test_remove_key_from_ui_right():
-	var keys_assigned : Array[InputEvent] = InputMap.action_get_events("ui_right")
+	var keys_assigned: Array[InputEvent] = InputMap.action_get_events("ui_right")
 	Debug.print(keys_assigned)
 	InputMap.action_erase_event("ui_right", keys_assigned[0])
 	Debug.print(keys_assigned)
@@ -77,7 +77,7 @@ func _input(event: InputEvent) -> void:
 
 
 func list_assigned_keys(command_name : String, as_bullets : bool = false) -> String:
-	var keys_assigned : Array[InputEvent] = InputMap.action_get_events(command_name)
+	var keys_assigned: Array[InputEvent] = InputMap.action_get_events(command_name)
 	if !keys_assigned.is_empty():
 		var keys = []
 		if as_bullets:

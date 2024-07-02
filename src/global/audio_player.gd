@@ -9,9 +9,6 @@ var sounds = {
 	"music_menu": preload("res://assets/samples/Which_brand_of_mustard_shall_i_buy.ogg"),
 	"music_ingame": preload("res://assets/samples/technogeek.mp3")
 }
-var sfx_bound = preload("res://assets/samples/tone1.mp3")
-var music_menu = preload("res://assets/samples/Which_brand_of_mustard_shall_i_buy.ogg")
-var music_ingame = preload("res://assets/samples/technogeek.mp3")
 
 
 func _free_audioplayer(asp: AudioStreamPlayer):
