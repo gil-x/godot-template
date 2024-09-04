@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cll2hfk84iy4v"]
+[gd_scene load_steps=6 format=3 uid="uid://cll2hfk84iy4v"]
 
 [ext_resource type="Script" path="res://src/main/menu/main_menu.gd" id="1_yct8u"]
-[ext_resource type="Texture2D" uid="uid://7h6mlxto0uys" path="res://assets/samples/sample.webp" id="2_4t21t"]
 [ext_resource type="PackedScene" uid="uid://s8w0gswkk5lk" path="res://src/levels/level_0/level_0.tscn" id="2_wykww"]
-[ext_resource type="AudioStream" uid="uid://c4irg7c8h2h8q" path="res://assets/samples/Which_brand_of_mustard_shall_i_buy.ogg" id="4_1grlq"]
+[ext_resource type="VideoStream" path="res://assets/samples/videos/monkey_title.ogv" id="3_8su8d"]
+[ext_resource type="Texture2D" uid="uid://co47dfxkcl3wf" path="res://assets/samples/images/monkey_title.jpg" id="3_36imb"]
+[ext_resource type="AudioStream" uid="uid://c4irg7c8h2h8q" path="res://assets/samples/musics/Which_brand_of_mustard_shall_i_buy.ogg" id="4_1grlq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -15,9 +16,18 @@ grow_vertical = 2
 script = ExtResource("1_yct8u")
 level0 = ExtResource("2_wykww")
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("3_8su8d")
+autoplay = true
+loop = true
+
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(400, 300)
-texture = ExtResource("2_4t21t")
+texture = ExtResource("3_36imb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -40,12 +40,12 @@ libraries = {
 [node name="Screens" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="SplashScreen1" parent="Screens" instance=ExtResource("2_rjbrs")]
+[node name="SplashScreenImg1" parent="Screens" instance=ExtResource("2_rjbrs")]
 
-[node name="SplashScreen2" parent="Screens" instance=ExtResource("3_u525l")]
+[node name="SplashScreenImg2" parent="Screens" instance=ExtResource("4_1br0k")]
 
-[node name="SplashScreen" parent="Screens" instance=ExtResource("4_1br0k")]
+[node name="SplashScreenVideo" parent="Screens" instance=ExtResource("3_u525l")]
 
-[connection signal="splash_screen_ended" from="Screens/SplashScreen1" to="Screens/SplashScreen1" method="_on_splash_screen_ended"]
-[connection signal="splash_screen_ended" from="Screens/SplashScreen2" to="Screens/SplashScreen2" method="_on_splash_screen_ended"]
-[connection signal="splash_screen_ended" from="Screens/SplashScreen" to="Screens/SplashScreen" method="_on_splash_screen_ended"]
+[connection signal="splash_screen_ended" from="Screens/SplashScreenImg1" to="Screens/SplashScreenImg1" method="_on_splash_screen_ended"]
+[connection signal="splash_screen_ended" from="Screens/SplashScreenImg2" to="Screens/SplashScreenImg2" method="_on_splash_screen_ended"]
+[connection signal="splash_screen_ended" from="Screens/SplashScreenVideo" to="Screens/SplashScreenVideo" method="_on_splash_screen_ended"]

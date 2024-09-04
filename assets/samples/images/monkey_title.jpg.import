@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7h6mlxto0uys"
-path="res://.godot/imported/sample.webp-605e516b62812ba4418e6bc8e80ee402.ctex"
+uid="uid://co47dfxkcl3wf"
+path="res://.godot/imported/monkey_title.jpg-c2e2dcade09fa8a61e2e9c48f7ae477e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/samples/sample.webp"
-dest_files=["res://.godot/imported/sample.webp-605e516b62812ba4418e6bc8e80ee402.ctex"]
+source_file="res://assets/samples/images/monkey_title.jpg"
+dest_files=["res://.godot/imported/monkey_title.jpg-c2e2dcade09fa8a61e2e9c48f7ae477e.ctex"]
 
 [params]
 

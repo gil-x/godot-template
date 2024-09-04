@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://855h75b2pm1s"]
 
 [ext_resource type="Script" path="res://src/tests/Ball.gd" id="1_hx4on"]
-[ext_resource type="Texture2D" uid="uid://cvl8r5w14qnio" path="res://assets/samples/disc.svg" id="1_jnqib"]
-[ext_resource type="AudioStream" uid="uid://1pxgi5t7s82k" path="res://assets/samples/tone1.mp3" id="3_swhis"]
-[ext_resource type="AudioStream" uid="uid://cj5qcgp2ae104" path="res://assets/samples/technogeek.mp3" id="4_7prto"]
+[ext_resource type="Texture2D" uid="uid://cvl8r5w14qnio" path="res://assets/samples/images/disc.svg" id="1_jnqib"]
+[ext_resource type="AudioStream" uid="uid://1pxgi5t7s82k" path="res://assets/samples/sfx/tone1.mp3" id="3_swhis"]
+[ext_resource type="AudioStream" uid="uid://cj5qcgp2ae104" path="res://assets/samples/musics/technogeek.mp3" id="4_7prto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nj0ob"]
 size = Vector2(800, 24)

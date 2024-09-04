@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvst7bdprpch4"]
 
 [ext_resource type="PackedScene" uid="uid://buwcqfbyjdeyt" path="res://src/main/splash_screens/splash_screen.tscn" id="1_ogbwy"]
-[ext_resource type="Texture2D" uid="uid://bpmfx6rvlebvr" path="res://assets/samples/logo_sample1.png" id="2_mixhe"]
+[ext_resource type="Texture2D" uid="uid://bnb48048iwghy" path="res://assets/samples/images/monkey_green.webp" id="2_qlpr1"]
 
 [node name="SplashScreen1" instance=ExtResource("1_ogbwy")]
 
 [node name="Sprite2D" type="Sprite2D" parent="Container" index="0"]
-texture = ExtResource("2_mixhe")
+texture = ExtResource("2_qlpr1")

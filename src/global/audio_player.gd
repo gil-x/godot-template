@@ -4,10 +4,17 @@ var tween : Tween
 
 # Naming convention is mandatory!
 var sounds = {
-	"sfx_bound": preload("res://assets/samples/tone1.mp3"),
-	"sfx_cannon": preload("res://assets/samples/cannon_fire.ogg"),
-	"music_menu": preload("res://assets/samples/Which_brand_of_mustard_shall_i_buy.ogg"),
-	"music_ingame": preload("res://assets/samples/technogeek.mp3")
+	"sfx_do": preload("res://assets/samples/sfx/do.ogg"),
+	"sfx_re": preload("res://assets/samples/sfx/re.ogg"),
+	"sfx_mi": preload("res://assets/samples/sfx/mi.ogg"),
+	"sfx_fa": preload("res://assets/samples/sfx/fa.ogg"),
+	"sfx_sol": preload("res://assets/samples/sfx/sol.ogg"),
+	"sfx_la": preload("res://assets/samples/sfx/la.ogg"),
+	"sfx_si": preload("res://assets/samples/sfx/si.ogg"),
+	"sfx_bound": preload("res://assets/samples/sfx/tone1.mp3"),
+	"sfx_cannon": preload("res://assets/samples/sfx/cannon_fire.ogg"),
+	"music_menu": preload("res://assets/samples/musics/Which_brand_of_mustard_shall_i_buy.ogg"),
+	"music_ingame": preload("res://assets/samples/musics/technogeek.mp3")
 }
 
 
@@ -39,6 +46,7 @@ func play_sound(sound_name: String) -> AudioStreamPlayer:
 	
 	add_child(asp)
 	asp.play()
+	Debug.print("I am playing... " + asp.name)
 	_free_audioplayer(asp)
 	
 	return asp

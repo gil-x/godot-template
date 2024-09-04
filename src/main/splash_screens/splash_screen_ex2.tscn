@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://vd2pv5hqfe8b"]
 
 [ext_resource type="PackedScene" uid="uid://buwcqfbyjdeyt" path="res://src/main/splash_screens/splash_screen.tscn" id="1_a1glh"]
-[ext_resource type="VideoStream" path="res://assets/samples/video72.ogv" id="2_nc835"]
+[ext_resource type="VideoStream" path="res://assets/samples/videos/monkey_video.ogv" id="2_loq35"]
 
 [node name="SplashScreen2" instance=ExtResource("1_a1glh")]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Container" index="0"]
 layout_mode = 0
-offset_left = -104.0
-offset_top = -104.0
-offset_right = 104.0
-offset_bottom = 104.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
 pivot_offset = Vector2(104, 104)
-stream = ExtResource("2_nc835")
+stream = ExtResource("2_loq35")
 autoplay = true
