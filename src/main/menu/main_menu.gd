@@ -1,6 +1,6 @@
 extends Control
 
-@export var level0: PackedScene
+@export var level: PackedScene
 var tween: Tween
 
 
@@ -23,7 +23,7 @@ func fadeOutMusic(duration: float) -> bool:
 
 func _on_start_button_pressed():
 	print("Start called")
-	var level = level0.instantiate()
+	var level = level.instantiate()
 	if await fadeOutMusic(1.0):
 		get_node("/root/Main").call_deferred("add_sibling", level)
 		call_deferred("queue_free")

@@ -12,6 +12,8 @@ var sounds = {
 	"sfx_la": preload("res://assets/samples/sfx/la.ogg"),
 	"sfx_si": preload("res://assets/samples/sfx/si.ogg"),
 	"sfx_bound": preload("res://assets/samples/sfx/tone1.mp3"),
+	"sfx_fall": preload("res://assets/samples/sfx/fall.ogg"),
+	"sfx_gameover": preload("res://assets/samples/sfx/gameover.ogg"),
 	"sfx_cannon": preload("res://assets/samples/sfx/cannon_fire.ogg"),
 	"music_menu": preload("res://assets/samples/musics/Which_brand_of_mustard_shall_i_buy.ogg"),
 	"music_ingame": preload("res://assets/samples/musics/technogeek.mp3")

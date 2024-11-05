@@ -1,0 +1,202 @@
+[gd_scene load_steps=19 format=3 uid="uid://dr2xxnntlkkq"]
+
+[ext_resource type="PackedScene" uid="uid://ev6aqnl0u28l" path="res://src/levels/level_1/paddle.tscn" id="1_0cf7x"]
+[ext_resource type="Script" path="res://src/levels/level_1/brick_breaker.gd" id="1_sei12"]
+[ext_resource type="PackedScene" uid="uid://cejtvcduqqb3h" path="res://src/levels/level_1/brick.tscn" id="2_yutul"]
+[ext_resource type="Texture2D" uid="uid://cvl8r5w14qnio" path="res://assets/samples/images/disc.svg" id="3_78j3s"]
+[ext_resource type="Script" path="res://src/levels/level_1/ball.gd" id="3_thkar"]
+[ext_resource type="Shader" path="res://src/levels/level_1/brick_breaker.gdshader" id="6_lf576"]
+[ext_resource type="Texture2D" uid="uid://dffsmb2aysqqm" path="res://icon.svg" id="7_livfq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xarca"]
+radius = 8.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dftxa"]
+frequency = 0.9
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4tmgy"]
+noise = SubResource("FastNoiseLite_dftxa")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_46rsp"]
+frequency = 0.9
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yhpw6"]
+seamless = true
+noise = SubResource("FastNoiseLite_46rsp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3lhl"]
+shader = ExtResource("6_lf576")
+shader_parameter/offset1 = Vector2(1, 1)
+shader_parameter/offset2 = Vector2(1, 1)
+shader_parameter/distorsion_strength = 0.0
+shader_parameter/noise_texture1 = SubResource("NoiseTexture2D_4tmgy")
+shader_parameter/noise_texture2 = SubResource("NoiseTexture2D_yhpw6")
+
+[sub_resource type="Animation" id="Animation_ojt2y"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/Shader:material:shader_parameter/distorsion_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 10.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_34a3g"]
+resource_name = "game_over"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/Shader:material:shader_parameter/distorsion_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 10.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sucpb"]
+resource_name = "glitch"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/Shader:material:shader_parameter/distorsion_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.4, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3a732"]
+resource_name = "start_game"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/Shader:material:shader_parameter/distorsion_strength")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cuibg"]
+_data = {
+"RESET": SubResource("Animation_ojt2y"),
+"game_over": SubResource("Animation_34a3g"),
+"glitch": SubResource("Animation_sucpb"),
+"start_game": SubResource("Animation_3a732")
+}
+
+[node name="BrickBreaker" type="Node"]
+script = ExtResource("1_sei12")
+brick_scene = ExtResource("2_yutul")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+
+[node name="Limits" type="Node" parent="."]
+
+[node name="Limits" type="StaticBody2D" parent="Limits"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Limits/Limits"]
+polygon = PackedVector2Array(0, 600, 8, 600, 8, 40, 792, 40, 792, 600, 800, 600, 800, 32, 0, 32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limits/Limits"]
+polygon = PackedVector2Array(800, 32, 800, 600, 792, 600, 792, 40, 8, 40, 8, 600, 0, 600, 0, 32)
+
+[node name="Bricks" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Paddle" parent="." instance=ExtResource("1_0cf7x")]
+position = Vector2(400, 580)
+
+[node name="Ball" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(392, 200)
+gravity_scale = 0.0
+script = ExtResource("3_thkar")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_78j3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_xarca")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Lifes" type="FlowContainer" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 640.0
+offset_right = 784.0
+offset_bottom = 34.0
+vertical = true
+reverse_fill = true
+
+[node name="Shader" type="Sprite2D" parent="HUD"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_m3lhl")
+position = Vector2(400, 300)
+scale = Vector2(6.25, 4.6875)
+texture = ExtResource("7_livfq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_cuibg")
+}
