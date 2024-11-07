@@ -4,6 +4,7 @@ extends StaticBody2D
 
 var tween : Tween
 
+signal destroyed
 
 func _ready() -> void:
 	var duration_scale = randi_range(5, 10) / 10.0
@@ -15,12 +16,8 @@ func _ready() -> void:
 	tween.tween_property(self, "modulate", Color.WHITE, duration_modulate)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func explode():
+	emit_signal("destroyed")
 	collision_shape.disabled = true
 	tween = create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.10)

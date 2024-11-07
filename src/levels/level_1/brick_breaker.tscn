@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dr2xxnntlkkq"]
+[gd_scene load_steps=21 format=3 uid="uid://dr2xxnntlkkq"]
 
 [ext_resource type="PackedScene" uid="uid://ev6aqnl0u28l" path="res://src/levels/level_1/paddle.tscn" id="1_0cf7x"]
 [ext_resource type="Script" path="res://src/levels/level_1/brick_breaker.gd" id="1_sei12"]
@@ -69,10 +69,10 @@ tracks/0/path = NodePath("HUD/Shader:material:shader_parameter/distorsion_streng
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 10.0]
+"values": [0.0, 8.33333, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -81,10 +81,10 @@ tracks/1/path = NodePath("ColorRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(0, 0, 0, 1), Color(0.833333, 0.833333, 0.833333, 1), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_sucpb"]
@@ -130,16 +130,38 @@ tracks/1/keys = {
 "values": [10.0, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_7d751"]
+resource_name = "victory"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.687481, 0.619424, 0.166932, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cuibg"]
 _data = {
 "RESET": SubResource("Animation_ojt2y"),
 "game_over": SubResource("Animation_34a3g"),
 "glitch": SubResource("Animation_sucpb"),
-"start_game": SubResource("Animation_3a732")
+"start_game": SubResource("Animation_3a732"),
+"victory": SubResource("Animation_7d751")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2n8k"]
+size = Vector2(784, 64)
 
 [node name="BrickBreaker" type="Node"]
 script = ExtResource("1_sei12")
+bricks_line = 1
+empty_space = 10
 brick_scene = ExtResource("2_yutul")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -169,6 +191,7 @@ unique_name_in_owner = true
 position = Vector2(392, 200)
 gravity_scale = 0.0
 script = ExtResource("3_thkar")
+speed_variance = 1000
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
@@ -182,7 +205,7 @@ shape = SubResource("CircleShape2D_xarca")
 
 [node name="Lifes" type="FlowContainer" parent="HUD"]
 unique_name_in_owner = true
-offset_left = 640.0
+offset_left = 320.0
 offset_right = 784.0
 offset_bottom = 34.0
 vertical = true
@@ -195,8 +218,70 @@ position = Vector2(400, 300)
 scale = Vector2(6.25, 4.6875)
 texture = ExtResource("7_livfq")
 
+[node name="BricksCount" type="Label" parent="HUD"]
+unique_name_in_owner = true
+offset_right = 32.0
+offset_bottom = 23.0
+text = "99"
+horizontal_alignment = 2
+
+[node name="BricksLeft" type="Label" parent="HUD"]
+offset_left = 40.0
+offset_right = 117.0
+offset_bottom = 23.0
+text = "Bricks left"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_cuibg")
 }
+
+[node name="Cheater" type="StaticBody2D" parent="."]
+position = Vector2(0, 456)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cheater"]
+position = Vector2(400, 24)
+shape = SubResource("RectangleShape2D_v2n8k")
+
+[node name="EndGamePopup" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 792.0
+offset_bottom = 600.0
+
+[node name="Panel" type="VBoxContainer" parent="EndGamePopup"]
+layout_mode = 2
+
+[node name="LabelVictory" type="Label" parent="EndGamePopup/Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "YOU WON!
+
+"
+horizontal_alignment = 1
+
+[node name="LabelLoss" type="Label" parent="EndGamePopup/Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "You lost...
+
+"
+horizontal_alignment = 1
+
+[node name="ButtonPlayAgain" type="Button" parent="EndGamePopup/Panel"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Play again"
+
+[node name="ButtonQuit" type="Button" parent="EndGamePopup/Panel"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Quit"
+
+[connection signal="pressed" from="EndGamePopup/Panel/ButtonPlayAgain" to="." method="_reset_scene"]
+[connection signal="pressed" from="EndGamePopup/Panel/ButtonQuit" to="." method="_on_button_quit_pressed"]

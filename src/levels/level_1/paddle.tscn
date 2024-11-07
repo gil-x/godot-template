@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://src/levels/level_1/paddle.gd" id="1_r8e2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_th3s4"]
-size = Vector2(80, 8)
+size = Vector2(128, 8)
 
 [node name="Paddle" type="CharacterBody2D"]
 script = ExtResource("1_r8e2s")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(40, -8, 40, 0, -40, 0, -40, -8)
+polygon = PackedVector2Array(64, -8, 64, 0, -64, 0, -64, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)

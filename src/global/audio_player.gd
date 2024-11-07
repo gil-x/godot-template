@@ -48,7 +48,7 @@ func play_sound(sound_name: String) -> AudioStreamPlayer:
 	
 	add_child(asp)
 	asp.play()
-	Debug.print("I am playing... " + asp.name)
+	#Debug.print("I am playing... " + asp.name)
 	_free_audioplayer(asp)
 	
 	return asp
